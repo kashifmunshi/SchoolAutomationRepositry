@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@model WebApp.VModels.VOrder
+
+<div class="col-12">
+    <div class="card">
+        <h5 class="card-header">
+            Add Order
+            <a asp-controller="Order" asp-action="GetOrders" class="btn btn-sm btn-primary float-end">
+                Order List
+            </a>
+        </h5>
+        <div class="card-body">
+            <form asp-action="AddOrder" class="row">
+                <div class="col-md-3 form-group">
+                    <label asp-for="Order.DepartmentId"></label>
+                    <select class="form-control form-control-md"
+                            asp-for="Order.DepartmentId">
+                        <option value="0">Please select</option>
+                        @foreach (var department in Model.Departments)
+                        {
+                            <option value="@department.DepartmentId">@department.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Order.DepartmentId" class="text-danger"></span>
+                </div>
+                <div class="col-md-3 form-group">
+                    <label asp-for="Order.ProductId"></label>
+                    <select class="form-control form-control-md"
+                            asp-for="Order.ProductId">
+                        <option value="0">Please select</option>
+                    </select>
+                    <span asp-validation-for="Order.ProductId" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label class="mt-4">&nbsp;</label>
+                    <button type="submit" class="btn btn-md btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

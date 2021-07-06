@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@model IEnumerable<AppEntity.Models.Order>
+
+<div class="col-12">
+    <div class="card">
+        <h5 class="card-header">
+            Order List
+            <a asp-controller="Order" asp-action="AddOrder" class="btn btn-sm btn-primary float-end">
+                Add Order
+            </a>
+        </h5>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Order Id</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Created</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var order in Model)
+                    {
+                        <tr>
+                            <th scope="row">@order.OrderId</th>
+                            <td>@order.Product.Department.Name</td>
+                            <td>@order.Product.Name</td>
+                            <td>@order.CreatedTime</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

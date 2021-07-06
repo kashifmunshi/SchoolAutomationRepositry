@@ -1,0 +1,9 @@
+---------------------------------------------------------------------
+-- Kashif Munshi
+---------------------------------------------------------------------
+-- Please Read
+-- I have created three tyered architecture with code first approach.
+-- 
+------------------------------------------------------------------
+-- Open Package Manager Console
+-- PM>update-database.
